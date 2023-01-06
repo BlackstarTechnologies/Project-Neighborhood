@@ -19,9 +19,11 @@ const { directory, print_t, table, exclude, outFile } = (() => {
   res["exclude"] = exc > -1 ? cleanedexclude : undefined;
   const out_ = keys.findIndex((v) => v.match(/out/));
   const pre_outfile_ = out_ > -1 ? arguments[keys[out_]] : undefined;
-  res["outFile"] = pre_outfile_.includes(":")
-    ? pre_outfile_
-    : path.relative(proc_cwd, pre_outfile_);
+  res["outFile"] = pre_outfile_
+    ? pre_outfile_.includes(":")
+      ? pre_outfile_
+      : path.relative(proc_cwd, pre_outfile_)
+    : undefined;
   console.log(res);
   return res;
 })();

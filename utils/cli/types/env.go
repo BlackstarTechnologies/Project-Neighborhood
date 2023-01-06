@@ -4,9 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 
-	"os"
+	"errors"
 )
 
 type ScriptsList []Command
@@ -35,23 +34,29 @@ func (E *Env) ScriptsList() ScriptsList {
 	return E.scriptsList
 }
 
-func (E *Env) AddCommands(file_path string) {
-	E.scriptsList = append(E.scriptsList, readCommandJson("./utils/cli/commands.json")...)
+func (E *Env) AddCommands(file_path string) error {
+	// "./utils/cli/commands.json"
+	commands_list, err := readCommandJson(file_path)
+	if err != nil {
+		return err
+	}
+
+	E.scriptsList = append(E.scriptsList, commands_list...)
+	return nil
 }
 
-func readCommandJson(file_path string) ScriptsList {
+func readCommandJson(file_path string) (ScriptsList, error) {
 	var scriptsList ScriptsList
 	// Let's first read the `config.json` file
 	content, err := ioutil.ReadFile(file_path)
 	if err != nil {
-		log.Fatal("Error when opening file: ", err)
-		os.Exit(1)
+		return nil, errors.New(fmt.Sprintf("Error when opening file: %s", err))
+
 	}
 	// Now let's unmarshall the data into `payload`
 	err = json.Unmarshal(content, &scriptsList)
 	if err != nil {
-		log.Fatal("Error during Unmarshal(): ", err)
-		os.Exit(1)
+		return nil, errors.New(fmt.Sprintf("Error during Unmarshal(): %s", err))
 	}
 	// Let's print the valid commands
 	var validScripts []string
@@ -59,5 +64,5 @@ func readCommandJson(file_path string) ScriptsList {
 		validScripts = append(validScripts, i.Name)
 	}
 	fmt.Println("valid scripts include: ", validScripts)
-	return scriptsList
+	return scriptsList, nil
 }
