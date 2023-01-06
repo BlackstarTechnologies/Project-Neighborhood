@@ -1,0 +1,28 @@
+{
+  "name": "project-neighborhood",
+  "version": "1.0.0",
+  "description": "an open-source end-to-end encrypted framework and file sharing network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackstarTechnologies/Project-Neighborhood.git"
+  },
+  "keywords": [
+    "end-to-end-encryption",
+    "encryption",
+    "open-source",
+    "OpenAPI",
+    "Golang",
+    "Javascript",
+    "cybersecurity"
+  ],
+  "author": "BlackstarTechnologies",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/BlackstarTechnologies/Project-Neighborhood/issues"
+  },
+  "homepage": "https://github.com/BlackstarTechnologies/Project-Neighborhood#readme"
+}
