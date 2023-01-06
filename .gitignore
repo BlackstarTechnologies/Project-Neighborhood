@@ -6,9 +6,8 @@
 *.dylib
 
 # temporary outputs
-tmp.*
-**/*.txt
-**/tmp*
+**/tmp.*
+**/*.tmp
 
 # Test binary, built with `go test -c`
 *.test
@@ -19,5 +18,12 @@ tmp.*
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-# environment folders 
+# ignore sub-repositories
+**/.git
+
+# environment folders and files
 **/env
+**/.env
+
+# node modules
+**/node_modules

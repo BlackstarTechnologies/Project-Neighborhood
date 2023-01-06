@@ -1,0 +1,10 @@
+TODO:
+  1. Browser clients for:
+    - Client Peer
+    - Proxy Peer
+    - Server Peer
+
+  2. Browser-side encryption modules:
+    - Network peer
+    - end2end encryption
+    - file sharing peer
