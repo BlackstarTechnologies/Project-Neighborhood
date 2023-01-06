@@ -16,9 +16,18 @@ type Env struct {
 }
 
 func NewEnv() *Env {
-	return &Env{
-		exit: false,
+	scriptsList, err := readCommandJson("./commands.json")
+	if err != nil {
+		return &Env{
+			exit:        false,
+			scriptsList: []Command{},
+		}
 	}
+	newEnv := Env{
+		exit:        false,
+		scriptsList: scriptsList,
+	}
+	return &newEnv
 }
 
 func (E *Env) Exit() bool {
