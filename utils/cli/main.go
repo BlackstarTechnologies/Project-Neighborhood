@@ -11,7 +11,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/BlackstarTechnologies/Project-Neighborhood.git/utils/cli/types"
+	"github.com/BlackstarTechnologies/Project-Neighborhood/utils/cli/types"
 )
 
 var reader *bufio.Reader = bufio.NewReader(os.Stdin)
