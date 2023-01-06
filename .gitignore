@@ -9,6 +9,10 @@
 **/tmp.*
 **/*.tmp
 
+# log files
+**/*.log
+**/log
+
 # Test binary, built with `go test -c`
 *.test
 
