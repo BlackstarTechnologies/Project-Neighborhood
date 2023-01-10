@@ -7,8 +7,17 @@ import (
 	"strings"
 
 	"github.com/BlackstarTechnologies/Project-Neighborhood/utils/cli"
+	"github.com/joho/godotenv"
 )
 
+func init() {
+
+	err := godotenv.Load("./env/.env")
+
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+}
 func main() {
 
 	env := cli.NewEnv()

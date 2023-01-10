@@ -3,7 +3,7 @@ package v2
 import (
 	// "fmt"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -28,7 +28,7 @@ func (H *HttpClient) Get(url string) *HttpClient {
 func (H *HttpClient) ReadString() string {
 	if (H.length < 1) && H.err == nil {
 		defer H.resp.Body.Close()
-		H.body, H.err = ioutil.ReadAll(H.resp.Body)
+		H.body, H.err = io.ReadAll(H.resp.Body)
 
 	}
 	return string(H.body)
