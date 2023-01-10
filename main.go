@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/BlackstarTechnologies/Project-Neighborhood/utils/cli"
+	cli "github.com/BlackstarTechnologies/Project-Neighborhood/utils/cli/v1"
 	"github.com/joho/godotenv"
 )
 
@@ -21,7 +21,7 @@ func init() {
 func main() {
 
 	env := cli.NewEnv()
-	if err := env.AddCommands("./utils/cli/commands.json"); err != nil {
+	if err := env.AddCommands(os.Getenv("COMMANDS_JSON")); err != nil {
 		log.Fatal(err.Error())
 	}
 	args := os.Args[1:]
