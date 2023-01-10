@@ -1,13 +1,8 @@
 package cli
 
 import (
-	v1 "github.com/BlackstarTechnologies/Project-Neighborhood/utils/cli/v1"
 	"github.com/BlackstarTechnologies/Project-Neighborhood/utils/cli/v1/types"
 )
-
-func trial() {
-
-}
 
 type Env = types.Env
 
@@ -20,14 +15,14 @@ func NewEnv() *Env {
 }
 
 func OsExecute(cmds []string) error {
-	return v1.OsExecute(cmds)
+	return osExecute(cmds)
 }
 func RunCommand(CommandS []string, env *Env) error {
-	return index.RunCommand(CommandS, env)
+	return runCommand(CommandS, env)
 }
 func ReadCommand(prompt string) ([]string, error) {
-	return index.ReadCommand(prompt)
+	return readCommand(prompt)
 }
 func CLI(prompt string, env *Env) {
-	index.CLI(prompt, env)
+	cLI(prompt, env)
 }

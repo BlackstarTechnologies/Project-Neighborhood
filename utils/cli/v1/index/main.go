@@ -11,7 +11,7 @@ import (
 
 var reader *bufio.Reader = bufio.NewReader(os.Stdin)
 
-func CLI(prompt string, env *Env) {
+func cLI(prompt string, env *Env) {
 
 	for {
 		commands, err := ReadCommand(prompt)
@@ -29,7 +29,7 @@ func CLI(prompt string, env *Env) {
 	}
 }
 
-func ReadCommand(prompt string) ([]string, error) {
+func readCommand(prompt string) ([]string, error) {
 	fmt.Printf("%s> ", prompt)
 	cmdString, err := reader.ReadString('\n')
 
@@ -42,7 +42,7 @@ func ReadCommand(prompt string) ([]string, error) {
 	return arrCommandStr, nil
 }
 
-func RunCommand(CommandS []string, env *Env) error {
+func runCommand(CommandS []string, env *Env) error {
 	if len(CommandS) < 1 {
 		return nil
 	}
@@ -86,7 +86,7 @@ func RunCommand(CommandS []string, env *Env) error {
 	return nil
 }
 
-func OsExecute(cmds []string) error {
+func osExecute(cmds []string) error {
 
 	fmt.Println("executing: ", strings.Join(cmds, " "))
 	cmd := exec.Command(cmds[0], cmds[1:]...)
