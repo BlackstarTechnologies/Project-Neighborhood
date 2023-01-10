@@ -1,4 +1,4 @@
-package cli
+package v1
 
 import (
 	"github.com/BlackstarTechnologies/Project-Neighborhood/utils/cli/v1/types"
