@@ -1,21 +1,20 @@
-package main
+package original
 
 import (
-	"fmt"
 	"io/ioutil"
 	"net/http"
 )
 
-func Version1Get(url string) {
+func Get(url string) (body string, err error) {
 	// "https://api.github.com/users/KrunalLathiya"
 	resp, err := http.Get(url)
 	if err != nil {
-		print(err)
+		return "", err
 	}
 	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
+	body_, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		print(err)
+		return "", err
 	}
-	fmt.Print(string(body))
+	return string(body_), nil
 }

@@ -1,6 +1,7 @@
-package main
+package test
 
 import (
+	"blackstar.go/simple-client/original"
 	"blackstar.go/simple-client/utils"
 	"blackstar.go/simple-client/v1"
 	"blackstar.go/simple-client/v2"
@@ -8,7 +9,7 @@ import (
 
 func main() {
 	{
-		body, err := OriginalGet("https://api.github.com/users/KrunalLathiya")
+		body, err := original.Get("https://api.github.com/users/KrunalLathiya")
 		openstring := "OriginalGet(https://api.github.com/users/KrunalLathiya)\n"
 		utils.ShowResponse(body, err, openstring)
 	}

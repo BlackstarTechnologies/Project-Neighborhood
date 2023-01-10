@@ -1,9 +1,0 @@
-[
-  {
-    "Name": "directorywalk",
-    "Aliases": ["dirwalk"],
-    "Usage": "list files in a directory, default directory is: F:\\Judah_Projects\\BlackstarBackbone",
-    "Script": "node ./utils/nodescripts/directorywalk",
-    "Default": "--dir ./../../"
-  }
-]
