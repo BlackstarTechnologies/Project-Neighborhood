@@ -5,7 +5,7 @@ type Command interface {
 	Aliases() []string
 	Description() string
 	Match(string) bool
-	Options() []string
+	Flags() []string
 	ReadFlags([]string) map[string][]string
 	Execute([]string) error
 	Help() string
@@ -19,7 +19,7 @@ type Prompt interface {
 }
 type ScriptDef interface {
 	Command
-	Default()
+	Default() error
 }
 
 type Env interface {
@@ -27,6 +27,9 @@ type Env interface {
 	ScriptsList() []ScriptDef
 	FetchJSON(...string) error
 	CommandsList() []Command
+	WrapError(string, error) error
+	History() error
+	Log(string) error
 }
 
 type CLI interface {
