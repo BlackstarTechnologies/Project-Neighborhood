@@ -6,7 +6,7 @@ type Command interface {
 	Description() string
 	Match(string) bool
 	Flags() []string
-	ReadFlags([]string) map[string][]string
+	ReadFlags([]string) (map[string][]string, error)
 	Execute([]string) error
 	Help() string
 }

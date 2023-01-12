@@ -1,0 +1,32 @@
+Existing:
+  1. HTTP/1.1:
+    - simultaneous bidirectional data connection
+    - reuse connection
+  2. HTTP/2.2: [TLS]:
+    - encrypted data connection
+    - reuse connection for multiple requests
+  3. HTTP/3: [Quic]:
+    - end-2-end encrypted UDP connection
+    - single handshake streams
+    - carrier/ISP agnostic
+
+Ideas:
+  - full encryption
+  - checksum and file chunking/biting
+  - bidirectional data stream (don't close buf)
+  Thoughts:
+    - give unique url enpoint per client
+    # to make sure it is the same client
+    - give a separate stream [tcp backed] for file metadata [name, size, type, []chunkIDs ]
+    # to give a recourse to identify dropped packets
+    # send file in uniquely tagged chunks to tr
+  1. Blackstar/1: [p2p/e2e]:
+    - 4 simultaneous TCP streams per connection
+    - 2 control streams [1 per peer] 
+    - 2 data streams [1 per peer]
+    [unique Hash and encryption per connection, shortheaders per packet]
+  2. Blackstar/2: [p2p/e2e/udp]:
+    - 2 unidirectional serial TCP connections (with packet loss control)
+    - multiple udp connections per need
+    
+
