@@ -1,6 +1,6 @@
 package types
 
-type CLI interface {
+type CLI struct {
 }
 
 func (C *CLI) Init(*Env) error

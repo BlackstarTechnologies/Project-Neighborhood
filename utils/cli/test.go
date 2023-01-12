@@ -7,7 +7,6 @@ import (
 type Test_1 struct {
 	Comm Command
 	Prom Prompt
-	SDef ScriptDef
 	Env  Env
 	Cli  CLI
 }
@@ -15,13 +14,11 @@ type Test_1 struct {
 func NewTest1(
 	Comm Command,
 	Prom Prompt,
-	SDef ScriptDef,
 	Env Env,
 	Cli CLI,
 ) *Test_1 {
 	return &Test_1{
 		Prom: Prom,
-		SDef: SDef,
 		Env:  Env,
 		Cli:  Cli,
 	}

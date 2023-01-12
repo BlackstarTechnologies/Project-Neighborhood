@@ -7,6 +7,8 @@ import (
 	"strings"
 
 	cli "github.com/BlackstarTechnologies/Project-Neighborhood/utils/cli/v1"
+
+	v3 "github.com/BlackstarTechnologies/Project-Neighborhood/utils/cli/v3"
 	"github.com/joho/godotenv"
 )
 
@@ -18,7 +20,7 @@ func init() {
 		log.Fatal("Error loading .env file")
 	}
 }
-func main() {
+func mainoriginal() {
 
 	env := cli.NewEnv()
 	if err := env.AddCommands(os.Getenv("COMMANDS_JSON")); err != nil {
@@ -28,4 +30,11 @@ func main() {
 	fmt.Printf("args: %s \n", strings.Join(args, ","))
 	cli.RunCommand(args, env)
 	cli.CLI("hey", env)
+}
+
+func main() {
+	fmt.Println("Hello World")
+	cli := v3.NewCLI()
+
+	cli.HelloWorld()
 }

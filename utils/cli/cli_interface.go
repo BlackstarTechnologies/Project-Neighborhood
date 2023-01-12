@@ -17,24 +17,27 @@ type Prompt interface {
 	Pop() string
 	Raw() []string
 }
-type ScriptDef interface {
-	Command
-	Default() error
-}
 
 type Env interface {
-	Prompt() *Prompt
-	ScriptsList() []ScriptDef
+	Prompt() Prompt
+	ScriptsList() []Command
 	FetchJSON(...string) error
 	CommandsList() []Command
 	WrapError(string, error) error
-	History() error
+	History() []string
 	Log(string) error
+	Error(...string) error
 }
 
 type CLI interface {
-	Init(*Env) error
+	Init(Env) error
+	GenerateNewEnv(...string) Env
 	CommandList() []Command
-	RunCommand(Command, *Env) error
-	ReadInput(*Env) Command
+	ExecutionEngine(ArgList, Env) error
+	ReadInput(Env) ArgList
+	ChildCli(string, Env) CLI
+	Loop() error
+	HelloWorld()
 }
+
+type ArgList []string
